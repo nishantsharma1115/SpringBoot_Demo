@@ -3,10 +3,9 @@ package com.application.techatdoor.controller;
 import com.application.techatdoor.models.Student;
 import com.application.techatdoor.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RequestMapping("api/v1/person")
 @RestController
@@ -22,5 +21,10 @@ public class StudentController {
     @PostMapping
     public void insertStudent(@RequestBody Student student) {
         studentService.insertStudent(student);
+    }
+
+    @GetMapping
+    public ArrayList<Student> read() {
+        return studentService.read();
     }
 }
